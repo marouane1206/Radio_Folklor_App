@@ -6,7 +6,11 @@
     "slug": "spotifyclone",
     "privacy": "public",
     "version": "0.5.0",
-    "platforms": ["android", "ios", "web"],
+    "platforms": [
+      "android",
+      "ios",
+      "web"
+    ],
     "githubUrl": "https://github.com/calebnance/expo-spotify",
     "orientation": "portrait",
     "primaryColor": "#181414",
@@ -19,13 +23,21 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "android": {
-      "versionCode": 50
+      "versionCode": 50,
+      "package": "com.radiofolklor"
     },
     "ios": {
       "buildNumber": "0.5.0",
       "supportsTablet": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "cfe3186a-3491-4cad-8a37-4dad578b9b90"
+      }
     }
   }
 }
