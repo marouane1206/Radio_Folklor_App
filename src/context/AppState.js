@@ -17,7 +17,8 @@ class AppState extends React.Component {
         title: 'So It Goes'
       },
       isLoading: true,
-      showMusicBar: true
+      showMusicBar: true,
+      language: 'en'
     };
 
     this.updateState = this.updateState.bind(this);

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { colors } from '../constants';
+import { LanguageContext } from '../context/LanguageContext';
 
 // navigation stacks
 import StackHome from './StackHome';
@@ -14,21 +15,26 @@ import CustomTabBar from '../components/CustomTabBar';
 import SvgTabHome from '../icons/Svg.TabHome';
 import SvgTabLibrary from '../icons/Svg.TabLibrary';
 import SvgTabSearch from '../icons/Svg.TabSearch';
+import { Ionicons } from '@expo/vector-icons';
+import Settings from '../screens/Settings';
 
 const Tab = createBottomTabNavigator();
 
 function TabNavigation() {
+  const { t } = React.useContext(LanguageContext);
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarIcon: ({ active }) => {
-          let icon = <SvgTabHome active={active} />;
+        tabBarIcon: ({ focused }) => {
+          let icon = <SvgTabHome active={focused} />;
 
           if (route.name === 'StackSearch') {
-            icon = <SvgTabSearch active={active} />;
+            icon = <SvgTabSearch active={focused} />;
           } else if (route.name === 'StackLibrary') {
-            icon = <SvgTabLibrary active={active} />;
+            icon = <SvgTabLibrary active={focused} />;
+          } else if (route.name === 'Settings') {
+            icon = <Ionicons name="settings-outline" size={24} color={focused ? colors.white : colors.greyInactive} />;
           }
 
           return icon;
@@ -42,21 +48,21 @@ function TabNavigation() {
         name="StackHome"
         component={StackHome}
         options={{
-          tabBarLabel: 'Home'
+          tabBarLabel: t('home')
         }}
       />
       <Tab.Screen
         name="StackSearch"
         component={StackSearch}
         options={{
-          tabBarLabel: 'Search'
+          tabBarLabel: t('search')
         }}
       />
       <Tab.Screen
         name="StackLibrary"
         component={StackLibrary}
         options={{
-          tabBarLabel: 'Library'
+          tabBarLabel: t('library')
         }}
       />
     </Tab.Navigator>

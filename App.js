@@ -8,6 +8,7 @@ import RootStack from './src/navigation/RootStack';
 
 // app context state
 import AppState from './src/context/AppState';
+import LanguageProvider from './src/context/LanguageContext';
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -47,11 +48,13 @@ function App() {
   }
 
   return (
-    <AppState>
+    <LanguageProvider>
+      <AppState>
       <StatusBar barStyle="light-content" />
 
       <RootStack />
     </AppState>
+    </LanguageProvider>
   );
 }
 
