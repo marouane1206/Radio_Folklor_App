@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { LanguageContext } from '../context/LanguageContext';
 import { View, StyleSheet } from 'react-native';
+import { LanguageContext } from '../context/LanguageContext';
 import ScreenHeader from '../components/ScreenHeader';
 import LanguageSelector from '../components/LanguageSelector';
 
-const Settings = () => {
+function Settings() {
   const { t } = useContext(LanguageContext);
   return (
     <View style={styles.container}>
@@ -12,13 +12,13 @@ const Settings = () => {
       <LanguageSelector />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#000',
-  },
+    flex: 1
+  }
 });
 
 export default Settings;

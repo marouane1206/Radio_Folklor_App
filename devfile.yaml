@@ -1,0 +1,75 @@
+schemaVersion: 2.2.0
+metadata:
+  name: react-native-app
+  displayName: React Native App
+  description: React Native Application development environment
+  tags:
+    - React Native
+    - JavaScript
+    - Mobile
+    - Node.js
+
+components:
+  - name: development
+    container:
+      image: node:18
+      memoryLimit: 2Gi
+      mountSources: true
+      endpoints:
+        - name: metro
+          targetPort: 8081
+          exposure: public
+        - name: web
+          targetPort: 19006
+          exposure: public
+
+commands:
+  - id: install-dependencies
+    exec:
+      component: development
+      commandLine: npm install
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: build
+        isDefault: true
+
+  - id: start-dev
+    exec:
+      component: development
+      commandLine: npm start
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: run
+        isDefault: true
+
+  - id: build-android
+    exec:
+      component: development
+      commandLine: npm run android
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: build
+
+  - id: build-ios
+    exec:
+      component: development
+      commandLine: npm run ios
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: build
+
+  - id: build-web
+    exec:
+      component: development
+      commandLine: npm run web
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: build
+
+  - id: test
+    exec:
+      component: development
+      commandLine: npm test
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: test
