@@ -1,5 +1,11 @@
 import React, { useContext } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, I18nManager } from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  I18nManager
+} from 'react-native';
 import { LanguageContext } from '../context/LanguageContext';
 
 const LanguageSelector = () => {
@@ -43,20 +49,20 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'center',
-    padding: 10,
+    padding: 10
   },
   button: {
     padding: 10,
     margin: 5,
     borderRadius: 5,
-    backgroundColor: '#333',
+    backgroundColor: '#333'
   },
   activeButton: {
-    backgroundColor: '#666',
+    backgroundColor: '#666'
   },
   buttonText: {
-    color: 'white',
-  },
+    color: 'white'
+  }
 });
 
 export default LanguageSelector;

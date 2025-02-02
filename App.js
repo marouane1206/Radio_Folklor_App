@@ -50,10 +50,10 @@ function App() {
   return (
     <LanguageProvider>
       <AppState>
-      <StatusBar barStyle="light-content" />
+        <StatusBar barStyle="light-content" />
 
-      <RootStack />
-    </AppState>
+        <RootStack />
+      </AppState>
     </LanguageProvider>
   );
 }

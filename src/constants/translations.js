@@ -7,7 +7,7 @@ const translations = {
     search: 'Search',
     library: 'Library',
     settings: 'Settings',
-    language: 'Language',
+    language: 'Language'
     // Add more English translations here
   },
   fr: {
@@ -16,7 +16,7 @@ const translations = {
     search: 'Rechercher',
     library: 'Bibliothèque',
     settings: 'Paramètres',
-    language: 'Langue',
+    language: 'Langue'
     // Add more French translations here
   },
   ar: {
@@ -25,7 +25,7 @@ const translations = {
     search: 'بحث',
     library: 'المكتبة',
     settings: 'الإعدادات',
-    language: 'اللغة',
+    language: 'اللغة'
     // Add more Arabic translations here
   }
 };

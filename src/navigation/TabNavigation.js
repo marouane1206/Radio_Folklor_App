@@ -34,7 +34,13 @@ function TabNavigation() {
           } else if (route.name === 'StackLibrary') {
             icon = <SvgTabLibrary active={focused} />;
           } else if (route.name === 'Settings') {
-            icon = <Ionicons name="settings-outline" size={24} color={focused ? colors.white : colors.greyInactive} />;
+            icon = (
+              <Ionicons
+                name="settings-outline"
+                size={24}
+                color={focused ? colors.white : colors.greyInactive}
+              />
+            );
           }
 
           return icon;
