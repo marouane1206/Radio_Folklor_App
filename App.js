@@ -8,6 +8,7 @@ import RootStack from './src/navigation/RootStack';
 
 // app context state
 import AppState from './src/context/AppState';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import LanguageProvider from './src/context/LanguageContext';
 
 function App() {
@@ -48,13 +49,14 @@ function App() {
   }
 
   return (
-    <LanguageProvider>
-      <AppState>
-        <StatusBar barStyle="light-content" />
-
-        <RootStack />
-      </AppState>
-    </LanguageProvider>
+    <SafeAreaProvider>
+      <LanguageProvider>
+        <AppState>
+          <StatusBar barStyle="light-content" />
+          <RootStack />
+        </AppState>
+      </LanguageProvider>
+    </SafeAreaProvider>
   );
 }
 

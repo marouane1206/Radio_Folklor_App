@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { View, StyleSheet } from 'react-native';
 import { colors } from '../constants';
 import { LanguageContext } from '../context/LanguageContext';
+import LanguageSelector from '../components/LanguageSelector';
 
 // navigation stacks
 import StackHome from './StackHome';
@@ -27,23 +29,22 @@ function TabNavigation() {
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarIcon: ({ focused }) => {
-          let icon = <SvgTabHome active={focused} />;
-
-          if (route.name === 'StackSearch') {
-            icon = <SvgTabSearch active={focused} />;
-          } else if (route.name === 'StackLibrary') {
-            icon = <SvgTabLibrary active={focused} />;
-          } else if (route.name === 'Settings') {
-            icon = (
-              <Ionicons
-                name="settings-outline"
-                size={24}
-                color={focused ? colors.white : colors.greyInactive}
-              />
-            );
+          switch (route.name) {
+            case 'StackSearch':
+              return <SvgTabSearch active={focused} />;
+            case 'StackLibrary':
+              return <SvgTabLibrary active={focused} />;
+            case 'Settings':
+              return (
+                <Ionicons
+                  name={focused ? 'settings' : 'settings-outline'}
+                  size={24}
+                  color={focused ? colors.white : colors.greyInactive}
+                />
+              );
+            default:
+              return <SvgTabHome active={focused} />;
           }
-
-          return icon;
         },
         tabBarActiveTintColor: colors.white,
         tabBarInactiveTintColor: colors.greyInactive
@@ -71,8 +72,17 @@ function TabNavigation() {
           tabBarLabel: t('library')
         }}
       />
+      <Tab.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          tabBarLabel: t('settings')
+        }}
+      />
     </Tab.Navigator>
   );
 }
+
+const styles = StyleSheet.create({});
 
 export default TabNavigation;

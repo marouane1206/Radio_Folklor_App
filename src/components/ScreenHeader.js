@@ -45,6 +45,11 @@ ScreenHeader.propTypes = {
 };
 
 const styles = StyleSheet.create({
+  leftContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
   container: {
     alignItems: 'center',
     flexDirection: 'row',

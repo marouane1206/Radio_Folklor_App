@@ -1,9 +1,14 @@
 import * as React from 'react';
 import { DarkTheme, NavigationContainer } from '@react-navigation/native';
+import Background from '../components/Background';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StyleSheet } from 'react-native';
 
 // navigation
 import TabNavigation from './TabNavigation';
+
+// components
+import LanguageBar from '../components/LanguageBar';
 
 // screens
 import ModalMusicPlayer from '../screens/ModalMusicPlayer';
@@ -14,10 +19,12 @@ const Stack = createNativeStackNavigator();
 function RootStack() {
   return (
     <NavigationContainer theme={DarkTheme}>
-      <Stack.Navigator
-        screenOptions={{
-          presentation: 'fullScreenModal'
-        }}
+      <Background>
+        <LanguageBar />
+        <Stack.Navigator
+          screenOptions={{
+            presentation: 'fullScreenModal'
+          }}
       >
         <Stack.Screen
           name="TabNavigation"
@@ -44,8 +51,16 @@ function RootStack() {
           }}
         />
       </Stack.Navigator>
+      </Background>
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000'
+  }
+});
 
 export default RootStack;
